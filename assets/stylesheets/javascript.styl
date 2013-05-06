@@ -1,0 +1,41 @@
+
+
+/* JavaScript function bindings with stylus
+  
+  Stylus allows you to define functions in JavaScript and then reference
+  these custom functions inside your stylesheets with great ease.
+
+  Consider the following javascript file: 
+  https://raw.github.com/LearnBoost/stylus/master/examples/js-functions.js
+ 
+which defines a function as:
+
+  function imageSize(img) {
+  // assert that the node (img) is a String node, passing
+  // the param name for error sublireporting
+ 
+  // ... core logic
+ 
+  return someExpression;
+  }
+
+You can now have the following stylus file:
+
+  stylus-width(path)
+  return image-size(path)[0]
+  image-height(path)
+  return image-size(path)[1]
+  body
+    font add(5px, 10px)
+    font sub(5px, 10px)
+  #jesus
+    width image-width('images/jesus.gif')
+    height image-height('images/jesus.gif')
+  #jesus-2
+    width image-size('images/jesus.gif')[0]
+    height image-size('images/jesus.gif')[1]
+  #jesus-3
+    size = image-size('images/jesus.gif')
+    width size[0]
+    height size[1]
+*/
