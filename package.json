@@ -1,7 +1,7 @@
 {
-  "name": "Cultivus",
+  "name": "cultivus",
   "version": "0.0.1",
-  "description": "A cultivation of Stylus, Nib and Roots.cx styles, functions and mixin collections.",
+  "description": "Homegrow and cultivate your Stylus, Nib and Roots.cx styles, functions and mixin collections. Nothing but stylish things, no extra stack tools",
   "main": "main.coffee",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
