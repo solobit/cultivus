@@ -1,0 +1,40 @@
+hr {
+  width: 27px;
+  height: 27px;
+}
+/* Yields outcome:
+hr {
+  width: 27px;
+  height: 27px;
+}
+*/
+span {
+  font-size: 15px;
+}
+p {
+  font-size: 20px;
+}
+.Pagina-inhoud h1 {
+  font: 38px 'Open Sans', sans-serif;
+}
+.Pagina-inhoud h2 {
+  font: 32px 'Open Sans', sans-serif;
+}
+.Pagina-inhoud h3 {
+  font: 28px 'Open Sans', sans-serif;
+}
+.Pagina-inhoud h4 {
+  font: 24px 'Open Sans', sans-serif;
+}
+.Pagina-inhoud h5 {
+  font: 20px 'Open Sans', sans-serif;
+}
+.Pagina-inhoud h6 {
+  font: 18px 'Open Sans', sans-serif;
+}
+.Pagina-inhoud a {
+  color: #e31741;
+}
+.Pagina-inhoud a.alt {
+  color: #47427a;
+}

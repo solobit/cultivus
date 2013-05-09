@@ -14,19 +14,11 @@ not have turned out to be the war-hero's dream that I originally wanted, but I s
 believed in some part of humanity worth fighting for—the parts of humanity that rarely
 make it to TV. There could have been someone inside; if there was, I wanted to save them.
 But the team and I were ordered to stand down; my superiors didn't believe in taking the
-risk of trading an American life for a native's. That day, I disobeyed a direct order, and rebelled by jumping from the rooftop, anyway.
+risk of trading one of our lives, for a native's.
 
-<http://www.goodreads.com/author/show/5177973.Mike_Norton>
+That day, I disobeyed a direct order, and rebelled by jumping from the rooftop, anyway.
 
-Etymology
----------
-
-> *Cultivus* (Medieval Latin)
->> derived from the Latin word **cultus** • care, worship, devotion; cultivated, tilled,
-farmed; habitation; cultivation; civilization; personal care, maintenance, grooming
-
->>> derived from the Late Latin word **colere** • honor, cherish, worship; live in , inhabit; till
-
+[M. Norton](http://www.goodreads.com/author/show/5177973.Mike_Norton)
 
 
 Credits
@@ -41,5 +33,15 @@ April 2013 by Solobit (c) All rights reserved to their respective owners
 Notation
 --------
 
-functions names starting with a _underscore are marked 'private' as being intended for
-internal use only
+* stylus function names starting with a `_` (underscore) are marked 'private' as being intended for internal use only (visual marker only, actual scope isn't limited, this is just JavaScript)
+
+
+Etymology
+---------
+
+> *Cultivus* (Medieval Latin)
+>> derived from the Latin word **cultus** • care, worship, devotion; cultivated, tilled,
+farmed; habitation; cultivation; civilization; personal care, maintenance, grooming
+
+>>> derived from the Late Latin word **colere** • honor, cherish, worship; live in , inhabit; till
+

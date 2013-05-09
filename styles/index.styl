@@ -1,0 +1,58 @@
+
+/* Cultivus
+ *
+ * A CSS/Stylus Processing Library
+ */
+
+/* Overridable defaults
+ * ---------------------------------------------------------------------
+ * ?= would allow us to define the images global before @importing
+ * the file if we were to distribute this
+ */
+rootdir     ?= '../../'
+language    ?= 'en|nl'
+img-path    ?= '/media/afbeeldingen'
+images      ?= img-path
+
+image(path)
+    url(join('/', images, path))
+
+
+settings()
+
+
+@import '../../instellingen' // root stylus
+
+@import 'reset'
+@import 'vendor'
+@import 'utilities'
+@import 'gradients'
+@import 'interaction'
+@import 'positions'
+@import 'typography'
+@import 'code'
+@import 'ui'
+@import 'buttons'
+@import 'forms'
+@import 'tables'
+@import 'grid'
+
+@import 'animation'
+
+// ---------------------------------------------------------------------
+// Framework Mixin (loads all default styles)
+// ---------------------------------------------------------------------
+
+// ? added by supersym ? missing ?
+
+framework()
+    global-reset() // ?
+    normalize()  // ?
+    base()
+    typography()
+    forms()
+    buttons()
+    code-blocks()
+    tables()
+
+

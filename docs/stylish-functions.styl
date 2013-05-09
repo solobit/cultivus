@@ -1,0 +1,120 @@
+
+// Kleurschema
+
+wit           = #ffffff
+zwart         = #363636
+
+geel          = #7A6A42
+goud          = #b88d74
+
+turquoise     = #6CBBB8
+
+paars         = #47427A
+lichtpaars    = #6664a0
+
+blauw         = #0183b5
+donkerblauw   = #403e6b
+
+rood          = #e31741
+lichtrood     = #6b4c39
+
+bruin         = #6b4c39
+lichtbruin    = #b88c74
+
+grijs         = #e0e0e0
+lichtgrijs    = #f8f8f8
+donkergrijs   = #919191
+
+
+
+// TODO Abstract out creating of ranges
+koppen_formaat      = 38px 32px 28px 24px 20px 18px
+koppen_lettertype   = 'Open Sans', sans-serif
+
+
+//
+// Generators
+//
+// Usage: e.g. you should use these as:
+//
+// .someClass
+//    print_link(red,blue)
+
+// will yield .someClass a { font-color: '#12345'; }
+//            .someClass a.alt { font-color: '#54321'; }
+
+// returns anchor elements with primary and alternating colors
+print_link(primary,secondary)
+
+    // standaard element
+    a
+        color primary
+
+    // alternatief via klasse
+    a.alt
+        color secondary
+
+// prints h1..h6 attributes
+print_head(range, family)
+
+    // iterate the range of values
+    // need to be manually set to 6 (!!)
+    for size,i in range
+
+        // create a element h1 to h6
+        h{i+1}
+
+            // and set some properties
+            font size family
+
+
+// higher-order functions can accept a function as argument
+// so is stylus high-order?
+invoke(a, b, fn)
+    fn(a, b)
+
+// basic arithmetic: addition
+add(a, b)
+    a + b
+
+// functions may contain for-loops
+sum(nums)
+    sum = 0
+    for n in nums
+        sum += n
+
+
+hr
+    // Regardless of position unit can be added
+    width invoke(2, 25px, add)
+    height invoke(2px, 25, add)
+
+/* Yields outcome:
+hr {
+  width: 27px;
+  height: 27px;
+}
+*/
+
+
+print_range(basenr = unit(px))
+    for i in 1 2 3 4 5 6
+        .H{i}
+            font-size i
+
+
+
+paras = 15px 20px 30px
+
+span
+    font-size paras[0]
+
+p
+    font-size paras[1]
+
+
+
+
+.Pagina-inhoud
+    print_head(koppen_formaat, koppen_lettertype)
+    print_link(rood, paars)
