@@ -1,0 +1,24 @@
+{
+  "name": "cultivus",
+  "version": "0.0.1",
+  "description": "Symanticss Processor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/solobit/cultivus.git"
+  },
+  "keywords": [
+    "css",
+    "stylus",
+    "roots",
+    "pre-processor",
+    "library",
+    "styles"
+  ],
+  "author": "R. Jentzema (composer)",
+  "license": "MIT",
+  "gitHead": "fc4d47595c1ab2706a0fed0fa6117bc49eecac12"
+}
