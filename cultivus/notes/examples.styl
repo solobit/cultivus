@@ -1,0 +1,59 @@
+/*
+ * Useful shortcuts:
+ *
+ * > https://github.com/LearnBoost/stylus/blob/master/docs/operators.md
+ * > https://github.com/spine/spine.site/blob/master/node_modules/stylus/docs/bifs.md
+ *
+
+
+// ((todo)) Implement search icon option with base64
+
+field-search
+   position: relative
+   input
+     +input-search
+   &:after
+     font: 16px roots-icons
+     content: icon(arrow_down_alt1)
+     display: block
+     position: absolute
+     top: 8px
+     right: 8px
+     opacity: .5
+     
+
+
+/*
+// Import the full library of generated, vendor prefixed, pure CSS
+// animations.
+animate true
+default true
+library true
+levelup true
+steriod true
+
+
+
+// Ranges --- key/value pairs, tuples, arrays you name it
+
+// Base modifiers of the h1..h6 range of headings in HTML (names are
+// actually strings atm) You can change these to, say 'head1', 'head2'
+// or 'head1-alternative' what ever you like
+// International symbols (these do not need to be localized as they
+// should be easily understood by anyone older than 13 who ever bought
+// clothes.
+// ((T)) Investigate options and usage further
+// ((?)) These are variables now as well? Why did I error on rs[1]
+
+
+// Writings/notes: I love CSS/HTML classes because they are the least
+// rigid of the whole lot. Elements shouldn't be touched unless you
+// really know what you are doing. Id's are only 1 unique (although site
+// generators are not posed with this problem so much anymore), but
+// these take precedence over other others (or what about .cls > #head1
+// - type declaration!)
+
+// Creates a series of classes named accordingly to the range of base
+// point modifiers (weighed counting) to create sane h1..h6 for pages.
+*/
+

@@ -1,0 +1,31 @@
+
+img-path            = '/media/afbeeldingen/' // base image path
+
+language            = 'nl_NL'
+
+// 🏲 flags
+animated            = false // switch CSS animations (lots of output CSS!)
+
+// 🌲 Base modifiers for (weighed) computation of output values
+base-font-size     ?= 1
+base-font-pixels   ?= 14px
+
+// Normal font size is 1 * 14px
+font-size          ?= base-font-size * base-font-pixels
+
+// 📅 Grid
+grid-column-width   = 80px
+grid-gutter-width   = 0
+grid-column-count   = 12
+
+// 🎶 Data types 
+
+// 📊 Ranges, key/value pairs, lists
+range-heading  = ('h1' 2.4) ('h2' 1.8) ('h3' 1.5) ('h4' 1.3) ('h5' 1) ('h6' 0.9)
+
+// Internationably state symbols for a range of size anyone who every bought clothers will know
+range-sizes    = (xxl 65) (xl 40) (l 36) (ml 32) (m 28) (n 22) (s 18) (xs 16) (xxs 14) (xxxs 11)
+
+// abstract out
+$shorthand-list = '>>'
+

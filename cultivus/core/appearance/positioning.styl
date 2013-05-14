@@ -1,0 +1,217 @@
+
+/* Positions
+ * =====================================================================
+ *
+ * Direct port from the brilliant utility for nib
+ *
+ * <https://github.com/visionmedia/nib/blob/master/lib/nib/positions.styl>
+ * 
+ */
+
+
+-keys(props)
+
+    props = arguments if length(arguments) > 1
+    keys  = ()
+
+    for prop in props
+        unless prop is a 'unit'
+            push(keys, prop)
+
+    return keys
+
+// !!! Good example of function !!!
+-vals(props)
+
+    props  = arguments if length(arguments) > 1
+    vals   = ()
+    length = length(props)
+
+    for prop, i in props
+        if prop is a 'unit'
+            push(vals, prop)
+        else
+            if previous is defined
+                unless previous is a 'unit'
+                    push(vals,0)
+
+            if (i+1) == length
+                push(vals,0)
+
+        previous = prop
+
+    return vals
+
+// Positions
+-pos(type, args)
+
+    keys = -keys(args)
+    vals = -vals(args)
+
+    position: unquote(type)
+
+    for key, i in keys
+        {key}: vals[i];
+
+/* Fixed Position
+ * ---------------------------------------------------------------------
+ *
+ * Synopsis:
+ * 
+ *   fixed: <pos> [n] <pos> [n]
+ *
+ * Examples:
+ *
+ *      fixed: top left
+ *      fixed: top 5px left
+ *      fixed: top left 5px
+ *      fixed: top 5px left 5px
+ */
+fixed()
+    -pos('fixed', arguments)
+
+/* Absolute Position
+ * ---------------------------------------------------------------------
+ *
+ * Synopsis:
+ *
+ *      absolute: <pos> [n] <pos> [n]
+ *
+ * Examples:
+ *
+ *      absolute: top left
+ *      absolute: top 5px left
+ *      absolute: top left 5px
+ *      absolute: top 5px left 5px
+ *
+ */
+absolute()
+    -pos('absolute', arguments)
+
+/* Relative Position
+ * ---------------------------------------------------------------------
+ *
+ * Synopsis:
+ *      relative: <pos> [n] <pos> [n]
+ *
+ * Examples:
+ *
+ *      relative: top left
+ *      relative: top 5px left
+ *      relative: top left 5px
+ *      relative: top 5px left 5px
+ *
+ */
+relative()
+    -pos('relative', arguments)
+
+/* Helpers: em 2 pixel and back
+ * ---------------------------------------------------------------------
+ *
+ * em2px and px2em both take a unit and convert it back and forth based
+ * on the base font size (using 1 as default base font size). These
+ * functions do not respect the user agent's font size, which is good,
+ * because it means the entire site scales up and down like em-based
+ * layouts should.
+ */
+em2px(a, base = null) {
+    fontsize = base ? base : (basefontsize is defined ? basefontsize : 1);
+    if unit(fontsize) == '%' {
+        fontsize = fontsize / 100;
+    }
+    unit(a * 16 * fontsize, px);
+}
+px2em(a, base = null) {
+    fontsize = base ? base : (basefontsize is defined ? basefontsize : 1);
+    if unit(fontsize) == '%' {
+        fontsize = fontsize / 100;
+    }
+    unit((a / 16 / fontsize), em);
+}
+
+/* Helper: Expand Sides
+ * ---------------------------------------------------------------------
+ *
+ * take a 'sides' expression (one that can be used in multi-sided
+ * declarations, such as border-width) and expand it to a full four-
+ * piece list. For example:
+ *
+ *     4px               ->    4px 4px 4px 4px
+ *     4px 0             ->    4px 0 4px 0
+ *     4px 0 2px         ->    4px 0 2px 0
+ *     4px 0 2px -1em    ->    4px 0 2px -1em
+ */
+expand-sides-4(sides) {
+    top = right = bottom = left = sides[0];
+
+    if (sides[1] is not null) {
+        right = left = sides[1];
+    }
+    if (sides[2] is not null) {
+        bottom = sides[2];
+    }
+    if (sides[3] is not null) {
+        left = sides[3];
+    }
+
+    (top right bottom left);
+}
+
+// the same thing, only with two-sided values (one side and its
+// complement)
+expand-sides-2(sides) {
+    primary = complement = sides[0];
+
+    if (sides[1] is not null) {
+        complement = sides[1]
+    }
+
+    (primary complement);
+}
+
+// and a convenience function for the two, whose default is 4, cuz
+// that's gonna be used more often (in fact, I can't think of a two-
+// sided value in CSS; this would be used mostly in mixins)
+expand-sides(sides, arity = 4) {
+    if arity == 2 {
+        expand-sides-2(sides);
+    } else if arity == 4 {
+        expand-sides-4(sides);
+    }
+}
+
+position-order(position) {
+    if (position == top) {
+        0;
+    } else if (position == right) {
+        1;
+    } else if (position == bottom) {
+        2;
+    } else if (position == left) {
+        3;
+    }
+}
+
+perpendicular-position(position) {
+    if (position in (left right)) {
+        top;
+    } else if (position in (top bottom)) {
+        left;
+    } else {
+        error("perpendicular-position: invalid direction");
+    }
+}
+
+
+/* inline-block fix for older browsers, in function and declaration form */
+inlineblock() {
+    zoom: 1;
+    display: inline;
+    display: -moz-inline-stack;
+    display: inline-block;
+}
+.inlineblock {
+    inlineblock();
+}
+
+

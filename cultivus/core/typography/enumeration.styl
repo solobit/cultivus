@@ -1,0 +1,162 @@
+
+
+
+/* » Mark: Raquo (Right Angle Quote or French Quote) 
+ * ---------------------------------------------------------------------
+ * ((todo)) abstract out
+ * Because technically raquo is not semantic, it's better to add it like
+ * this.
+ *
+ * Examples:
+ * 
+ *      raquo()
+ */
+bullit(sign = $shorthand-list)
+
+    &:after
+        content: " \00BB"  if sign is '>>'
+
+
+/* ⟲ Mixin: Unordened List
+ * ---------------------------------------------------------------------
+ *
+ * A nice default for list styles. More or less the same as browser
+ * defaults, scales nicely. You can pass it any style that list-style-
+ * type would normally take. Defaults to disc. Use this on a ul element
+ * por favor.
+ *
+ * Examples:
+ *      ul
+ *      ul: square
+ */
+ul(style = disc)
+    margin: 5px 15px
+    padding-left: 1em
+    li
+        list-style-type: style
+        padding: 2px 0
+
+/* ⟲ Mixin: Ordened List
+ * ---------------------------------------------------------------------
+ *
+ * A nice default for list styles. More or less the same as browser
+ * defaults, scales nicely. You can pass it any style that list-style-
+ * type would normally take. Defaults to decimal. Use this on a ol
+ * element por favor.
+ *
+ * ex. ol
+ * ex. ol: upper-roman
+ */
+ol(style = decimal)
+    margin: 5px 18px
+    padding-left: 1em
+    li
+        list-style-type: style
+        padding: 2px 0
+
+/* ⟲ Mixin: Inline List
+ * ---------------------------------------------------------------------*
+ *
+ * For when you need your list to be horizontal. Pass it the spacing you
+ * want between list elements, whatever units you'd like. Defaults to
+ * 20px
+ *
+ * Examples:
+ *
+ *      inline-list()
+ *      inline-list: 15px
+ */
+inline-list(spacing = 20px)
+    group()
+    margin: 0
+    padding: 0
+    li
+        float: left
+        margin-right: spacing
+        list-style-type: none
+    li:last-child
+        margin-right: 0
+
+/* ⟲ Mixin: Reset List
+ * ---------------------------------------------------------------------
+ * If you're tired of all the list shenanigans and want to get rid of
+ * them for this special list you're working on, this is your guy.
+ * Resets the margins, padding, and style.
+ * 
+ * Applied to: <elements> ul ol
+ *
+ * Examples:
+ *
+ *    ul.customers
+ *       reset-list()
+ *
+ *
+ * ul, ol, section, article (any container)
+ */
+reset-list()
+    margin: 0
+    padding: 0
+    li
+        float: none
+        list-style-type: none
+        padding: 0
+        margin: 0
+
+
+/* inline-block list */
+list-inlineblock(fixspace = false) {
+    @extend .list-nostyle;
+    > li {
+        inlineblock();
+        vertical-align: top;
+        if (fixspace) {
+            margin-right: -.25em;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+
+/* list without formatting */
+.list-nostyle {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.list-float {
+    @extend .list-nostyle;
+    & > li {
+        float: left;
+    }
+}
+
+.list-inlineblock {
+    list-inlineblock(true);
+}
+
+
+
+/* inline list with comma separation */
+.list-inline {
+    @extend .list-nostyle;
+    & > li {
+        display: inline;
+        &:after {
+            content: ', ';
+        }
+        &:last-child {
+            &:after {
+                content: none;
+            }
+        }
+    }
+}
+
+/* list with extra-beefy margins */
+.list-extra-margins li {
+    margin-bottom: baselinesize;
+}
+

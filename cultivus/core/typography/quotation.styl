@@ -1,0 +1,33 @@
+
+/* Typography: Typesetting Quotation Marks
+ *
+ * In English writing, quotation marks or inverted commas (informally
+ * referred to as quotes or speech marks)[1] are punctuation marks
+ * surrounding a quotation, direct speech, or a literal title or name.
+ * Quotation marks can also be used to indicate a different meaning of a
+ * word or phrase than the one typically associated with it and are
+ * often used to express irony. Quotation marks are sometimes used to
+ * provide emphasis, although this is usually considered incorrect
+ *
+ */
+
+
+
+/* Mixin: Blockquote
+ * ---------------------------------------------------------------------
+ * Nice styles for a blockquote, and even puts a nice hyphen in before
+ * your citation. Use with a <p> and <cite> inside for best results.
+ *
+ * blockquote()
+ *
+ * TODO: Add a couple different styles here
+ */
+blockquote()
+    p
+        font-weight: 300
+        font-size: 127%
+        line-height: 127%
+    cite
+        color: #888888
+        &:before
+            content: '\2014'

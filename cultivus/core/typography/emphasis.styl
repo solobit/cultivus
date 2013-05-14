@@ -1,0 +1,93 @@
+
+
+
+/* IE7-friendly border-box sizing -- doesn't do checking of units or anything,
+ * so make sure all your amounts are either the same unit or auto or 0 */
+border-box(box-size, box-padding = none, box-border = none) {
+    box-sizing: border-box;
+
+    border-box-width = box-size[0];
+    width: border-box-width;
+    if (box-size[1] is not null && box-size[1] != auto) {
+        border-box-height = box-size[1];
+        height: border-box-height;
+    }
+
+    if ((length(box-padding) == 1 && box-padding != 0 && box-padding != none) || (length(box-padding) > 1)) {
+        padding: box-padding;
+        box-padding = expand-sides(box-padding, 4);
+        needs-ie7 = true;
+    } else {
+        box-padding = expand-sides(0, 4);
+    }
+
+    if ((length(box-border) == 1 && box-border != 0 && box-border != none) || (length(box-border) > 1)) {
+        border: box-border;
+        box-border = expand-sides(box-border, 4);
+        needs-ie7 = true;
+    } else {
+        box-border = expand-sides(0, 4);
+    }
+
+    if (needs-ie7 is defined) {
+        .ie-lte7 & {
+            // adjust width for IE7
+            ie7-box-width = border-box-width - box-padding[1] - box-padding[3] - box-border[1] - box-border[3];
+            if (border-box-width != ie7-box-width) {
+                width: ie7-box-width;
+            }
+
+            // adjust height for IE7, if an explicit height is set
+            if (border-box-height is defined) {
+                ie7-box-height = border-box-height - box-padding[0] - box-padding[2] - box-border[0] - box-border[2];
+                if (border-box-height != ie7-box-height) {
+                    height: ie7-box-height;
+                }
+            }
+        }
+    }
+}
+
+/* shade the border as if there's a light shining on it */
+shadeborder(basecolor, amount, direction = convex) {
+    if (direction == concave) {
+        border-color: darken(basecolor, amount) basecolor lighten(basecolor, amount);
+    } else {
+        border-color: lighten(basecolor, amount) basecolor darken(basecolor, amount);
+    }
+}
+
+
+
+/* Mixin: Bold (b)
+ * ---------------------------------------------------------------------
+ *
+ * It's just faster to type +bold than font-weight: bold
+ *
+ * Examples:
+ *
+ *      bold()
+ */
+bold()
+    font-weight: bold
+
+/* Mixin: Italic
+ * ---------------------------------------------------------------------
+ *
+ * It's just faster to type +italic than font-style: italic
+ *
+ * Examples:
+ *
+ *      italic()
+ */
+italic()
+    font-style: italic
+
+/* ⟲ Mixin: No Select Highlight
+ * ---------------------------------------------------------------------
+ *
+ * You can't highlight this.
+ */
+no-select()
+    -webkit-touch-callout: none
+    prefix(user-select, none)

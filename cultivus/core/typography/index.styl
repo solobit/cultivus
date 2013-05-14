@@ -1,0 +1,121 @@
+
+/* Typography
+ * =====================================================================
+ *
+ * The art and technique of arranging type in order to make language
+ * visible. The arrangement of type involves the selection of typefaces,
+ * point size, line length, leading (line spacing), adjusting the spaces
+ * between groups of letters (tracking) and adjusting the space between
+ * pairs of letters (kerning).
+ *
+ * Type design is a closely related craft, which some consider distinct
+ * and others a part of typography; most typographers do not design
+ * typefaces, and some type designers do not consider themselves
+ * typographers
+ *
+ */
+
+@import 'case'
+@import 'emphasis'
+@import 'alignment'
+@import 'enumeration'
+@import 'general'
+@import 'headings'
+@import 'references'
+@import 'spacing'
+@import 'typesetting'
+@import 'quotation'
+
+
+/* Mixin: Paragraph
+ * ---------------------------------------------------------------------
+ * Takes care of all your paragraph needs. This used to have a bunch of
+ * golden ratio math to calculate exact pixels for line height and such
+ *
+ * ex. paragraph()
+ * ex. paragraph: 18
+ * ex. paragraph: 14 20px 500px
+ */
+paragraph(size = font-size, margins = true, width = false)
+    width: width if width
+    text-margin(size) if margins
+    line-height: 1.6em
+    font-size: unit(size, px)
+
+/* Mixin: Text Selection
+ * ---------------------------------------------------------------------
+ *
+ * This guy sets the text select color intelligently based on the
+ * highlight-color variable found in the settings file. If you really
+ * want, you can pass it a color override too
+ *
+ * Examples:
+ *
+ *      text-selection()
+ *
+ */
+text-selection(color = highlight-color, textColor = null)
+
+    textColor = light(color) ? white : #494949 unless textColor
+    
+    ::-moz-selection
+        background: color
+        color: textColor
+    ::selection
+        background: color
+        color: textColor
+
+/* Base Applicative Mixin: Base
+ * ---------------------------------------------------------------------
+ *
+ * WARNING: Creates classes in your css and styles them - not to be used
+ * inside an element. This is an essential mixin. You want this on your
+ * page. Sets your font stack, size, and colors based on the settings
+ * file and makes sure that your text is a great looking as possible.
+ * You can override any of the params, but there is really no reason to.
+ *
+ * Examples:
+ * 
+ *      base()
+ */
+base(fonts = font-stack, size = font-size, color = font-color)
+    body
+        font-family: fonts
+        font-size: unit(size*6.46, "%")
+        font-size: unit(size, px)
+        color: color
+            -webkit-font-smoothing: antialiased
+            -webkit-text-size-adjust: 100%
+            -ms-text-size-adjust: 100%
+
+/* Base Applicative Mixin: Typography
+ * ---------------------------------------------------------------------
+ *
+ * WARNING: Creates classes in your css and styles them - not to be used
+ * inside an element. Adds roots styles to bold and italic elements,
+ * headers, paragrapgs, small text, links, lists, and blockquotes. Got
+ * all your basic elements covered.
+ *
+ * Examples:
+ *
+ *      typography()
+ *
+ */
+typography()
+
+    bold-italic()
+    headers()
+    text-selection()
+    lists()
+    p
+        paragraph(font-size)
+
+    small
+        small-text()
+
+    a
+        link()
+
+    blockquote
+        blockquote()
+

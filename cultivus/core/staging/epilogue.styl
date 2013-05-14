@@ -1,0 +1,197 @@
+
+/* Epilogue
+ *
+ * Bundles of function calls go here. These used to be under their own
+ * respective categories before. Moved them out here for a few good
+ * reasons:
+ * 
+ * - all of these already contained a big fat warning. why? because they
+ *   apply properties (change state) of elements using those as
+ *   selectors e.g. apply a color on all text. This is a global effect
+ *   which is very hard to overide with style sheets
+ * - someone may accidentally try and use it somewhere else. Now the
+ *   methods can still be called, but not the bundles untill we are a
+ *   bit more sure of ourselves.
+ *
+ */
+
+/*
+ * WARNING:
+ *
+ * Creates classes in your css and styles them - not to be used inside
+ * an element. 
+ */
+
+
+/* Root Applicative: Lists
+ * ---------------------------------------------------------------------
+ *
+ * WARNING: Creates classes in your css and styles them - not to be used
+ * inside an element. Adds roots styles to ul and ols.
+ *
+ * Applied at: root level (column 0 of a styl file)
+ *
+ * Examples:
+ *
+ *      lists()
+ *
+ */
+lists()
+    ul
+        ul()
+    ol
+        ol()
+
+/* Root Applicative: Flash Notices using classes
+ * ---------------------------------------------------------------------
+ *
+ * Super convenient flash notices. Anything with .flash on
+ * it will display as a notice, and if you add the additional class
+ * .error, .warning, .notice, or .success, it will display the
+ * appropriate color background for the message.
+ *
+ * Examples:
+ *
+ *      flash-notices()
+ */
+flash-notices()
+    .{$Flash}
+        &.{$error}
+            flash(error)
+        &.{$warning}
+            flash(warning)
+        &.{$notice}
+            flash(notice)
+        &.{$success}
+            flash(success)
+
+/* Base Applicative: Bold-Italic
+ * ---------------------------------------------------------------------
+ *
+ * Adds in bold and italic styles to the right tags if you did a page
+ * reset.
+ *
+ * Examples:
+ *
+ *      bold-italic()
+ *
+ */
+bold-italic()
+    b
+        bold()
+    i
+        italic()
+    strong
+        bold()
+    em
+        italic()
+
+/* Additive Mixin: Fields
+ * ---------------------------------------------------------------------
+ *
+ * WARNING!
+ *
+ *      Creates classes in your css and styles them - not to be used
+ *      inside an element. Add the field styles to .field as well as
+ *      success, warning, and failure states. Also takes direction and
+ *      width. Highly recommended mixin.
+ * 
+ * Note: we use the participle here since we want to indicate a change
+ * in state that has taken place.
+ * 
+ */
+fields(direction = right, width = 370px)
+    .{$Field}
+        field(direction, width)
+
+        &.{$success[1]}
+            field-success()
+        &.{$warning[1]}
+            field-warning()
+        &.{$error[1]}
+            field-error()
+
+/* Additive Mixin: Forms
+ * ---------------------------------------------------------------------
+ *
+ * Adds nicer looking styles to all text inputs and textareas. Overrides
+ * the defaults.
+ *
+ */
+forms()
+    input[type='email'],
+    input[type='number'],
+    input[type='password'],
+    input[type='search'],
+    input[type='tel'],
+    input[type='text'],
+    input[type='url'],
+    input[type='color'],
+    input[type='date'],
+    input[type='datetime'],
+    input[type='datetime-local'],
+    input[type='month'],
+    input[type='time'],
+    input[type='week'],
+    textarea
+        input()
+
+        &.{$disable[1]}
+            input-disabled()
+        &.{$success[1]}
+            input-success()
+        &.{$warning[1]}
+            input-warning()
+        &.{$error[1]}
+            input-error()
+
+// shortcut to render all html5 input types
+//html5-inputs = unquote("input[type='email'], input[type='number'], input[type='password'], input[type='search'], input[type='tel'], input[type='text'], input[type='url'], input[type='color'], input[type='date'], input[type='datetime'], input[type='datetime-local'], input[type='month'], input[type='time'], input[type='week']")
+
+
+
+/* Additive Mixin: Buttons
+ * ---------------------------------------------------------------------
+ * WARNING: Creates classes in your css and styles them - not to be used
+ * inside an element. This mixin makes it such that you can use classes
+ * to define buttons on your page.
+ * .btn-simple: creates a simple button
+ * .btn: creates a fancy button
+ * .disabled: disables existing buttons of classes .btn and .btn-simple
+ */
+buttons()
+    .btn-simple
+        transition()
+        simple-button(blue)
+    .btn
+        transition()
+        button(blue)
+    .btn.disabled, .btn-simple.disabled
+        button-disabled()
+
+
+/* Additive Mixin: Tables
+ * ---------------------------------------------------------------------
+ *
+ * WARNING: Creates classes in your css and styles them - not to be used
+ * inside an element. Makes tables look awesome by default. Highly
+ * recommended if you have tables on your site at all.
+ *
+ */
+tables()
+    if mixin == 'root'
+        table
+            table()
+    else
+        warn('this mixin should be called at root level')
+
+// 📣 Function declaration at the root level with function calls inside
+framework()
+    base()
+    typography()
+    forms()
+    buttons()
+    code-blocks()
+    tables()
+    fields()
+

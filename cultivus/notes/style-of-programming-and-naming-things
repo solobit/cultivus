@@ -1,0 +1,97 @@
+
+
+
+
+Stylis has notion of:
+
+root
+indent
+
+so
+
+function()
+    // define some function...
+
+mixin()
+    // asumes indented under a root element/class/etc
+    font 14px 'Verdana'
+    // so uses traditional css attributes or custom properties
+
+A mixin changes the state of 'something'.
+
+In CSS, everything is intended to change state. Just depends if the rules match or not, cascading computed
+
+<some style="..." html="element attribute">Blabla </some>
+
+
+The big difference is, when do we apply these functions/mixins in such a way, that you see it in css
+
+pattern:
+
+function() ----------------- without indent: its a call
+    .someClass ------------- error
+        color: blue; ------- now its good, WITH attributes 
+
+
+So:
+
+ul()
+    list-style: none
+
+lists() --------------- group
+    ul ---------------- CSS selector! All `ul` elements
+        ul() ---------- attach changes from ul() mixin
+
+Applies that to every ul!!!
+
+
+
+
+
+http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/
+
+// apply is an action, the verb performed on theme, a noun
+
+
+Imperative
+
+verbs that are expressing a command:
+“In the sentence 'Come here!', 'come' is an imperative (verb).”
+nl.: gebiedende wijs
+
+e.g.
+apply-theme()
+get-styles()
+
+
+pas-aan()
+maak-op()
+
+Geen onderwerp! Maar:
+
+aanpassen('thema')
+adjust('theme')
+update('theme')
+
+// would apply brighten(more) to img?
+brighten(img)
+
+
+something
+    foo: something
+
+foo = type of indent
+
+
+Mixin:
+
+someMixin()
+    background-color: white;
+
+
+.someClass
+    someMixin()
+
+    > .someClass {
+        background-color: #fff;
+      }

@@ -1,0 +1,26 @@
+
+/* Text meant only for screen readers and crappy feature phones */
+assistive-text() {
+    position: absolute;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+accessible-hidden(createVisible = true, originalPosition = static) {
+    assistive-text();
+    if (createVisible) {
+        &.visible {
+            accessible-hidden-visible(originalPosition);
+        }
+    }
+}
+
+/* text that's hidden temporarily from the UI but available to screen readers */
+.accessible-hidden {
+    accessible-hidden();
+}
+
+accessible-hidden-visible(originalPosition = static) {
+    clip: inherit;
+    position: originalPosition;
+}

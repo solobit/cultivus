@@ -1,0 +1,26 @@
+
+/* Mixin: Text Margin
+ * ---------------------------------------------------------------------
+ *
+ * Pass this guy a font size (pixels - no units) and he will apply
+ * margins to the element at a ratio most pleasing to the gods.
+ *
+ * ex. text-margin: 14px
+ */
+text-margin(size)
+    margin: unit(size/1.6, px) 0
+
+
+/* collapse the top margin of the first child and the bottom margin of the second */
+collapseinnermargins() {
+    > :first-child {
+        margin-top: 0;
+    }
+    > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+.collapse-inner-margins {
+    collapseinnermargins();
+}

@@ -1,0 +1,273 @@
+
+
+/*.md
+
+$very    = 'very'
+
+$big     = 'big'
+
+
+/* Localized quantifiers (semantic names)
+
+
+Determiners
+* **The** girl is **a** student.
+* I've lost **my** keys.
+* **Some** folks get all **the** luck.
+* **Which** book is that?
+* I only had **thirty-seven** drinks.
+* I'll take **this** one.
+* **Both** windows were open.
+
+//determiners = ('possessive')
+
+We use possessive adjectives to show who owns or "possesses" something.
+The possessive adjectives are: my, your, his, her, its, our, their;
+whose
+
+
+
+Ordinal numbers
+
+See also: Numbering of storeys in buildings
+Ordinal numbers refer to a position in a series. Common ordinals include:
+
+
+
+// default large range?
+$rangeNumbers = 1...10
+getRange()
+    for number in numbers
+        .num-{number}
+            content: '1'
+
+
+
+
+getOrdinal(n)
+    s = ('th' 'st' 'nd' 'rd')
+    v = n % 100
+    n + (s[(v-20)%10]||s[v]||s[0])
+
+
+// you could even map those to google voice commands!!!!!!!!!!
+
+// .{my}-{first}-{child} ~> apply-to(parent) = parent:first
+$my     = 'possessive adjective'    // current id...
+
+// .{our}-{ancestor}
+$our    = 'possessive determiner'   // all classes
+
+
+/*
+Dimensional adjectives
+----------------------
+
+Difference between big, small, long, short, tall, huge, and tiny
+in Confusing Words
+
+# Big and Small
+
+**Use big and small to talk about the general size of something.**
+
+* Elephants are big.
+* Mice are small.
+
+> Note: With clothing and food, we use large, not big:
+
+I ordered a big coffee with milk.
+--I ordered a large coffee with milk.--
+
+> “This shirt is too small for me.”
+> “What size is it?”
+> “Medium.”
+> “OK, I’ll get you a large.“
+
+*/
+
+/*
+# Huge / Tiny
+
+
+adjectives(subject, )
+
+        if size is huge
+            superlative = {$very}-{$big} if subject is a 'clothing' or 'food'
+            .{$very}-{$big} if subject is a 'clothing' or 'food'
+        if size is tiny
+            .{very}-${small}
+
+if subject is a 'clothing' or subject is a 'food'
+
+
+
+Their new house is huge! I think it has 50 rooms.
+“Do you want any cake?”
+“Just a tiny piece. I’m on a diet.”
+ 
+
+# Long and Short
+
+**Use long and short to talk about length (horizontal distance).**
+
+You can also use long and short with time, books, words/sentences, hair, and legs:
+
+The line to buy tickets for the concert is very long. There are hundreds of people waiting.
+The movie is really long - about three hours.
+That book is quite long - it has about 500 pages.
+Academic writing often uses very long sentences.
+She has short blonde hair and gorgeous long legs.
+Note: There are two ways to talk about distance - far or a long way. 
+
+The beach is far from my house.
+The beach is a long way from my house.
+The beach is long from my house.
+Learn English Words: Tall and Short
+
+Use tall and short to talk about height (vertical distance) – especially with people, but sometimes also with buildings and trees.
+
+My brother is really tall. 
+New York City has a lot of tall buildings.
+There are many tall trees in the Amazon rain forest.
+
+> The structure of the lexical meaning of dimensional adjectives
+(“grande, alto, largo, ancho, grueso, profundo” -big, tall, long, wide,
+thick, deep- and their correspondent antonyms) has been the object of an
+intense theoretical and empirical controversy during the last two
+decades.
+
+Contradictions
+
+ > However, the enormous amount of contradictions observed in the
+ empirical arena forced researchers to turn away from this structure and
+ to abandon the study of this lexical field altogether.   We decided to
+ look for a different approach, taking into consideration that the
+ contradictions found in the empirical arena called for a reconsideration
+ instead of an abandonment of the theme. A complete review of the
+ psycholinguistic research of these terms, enabled us to identify a
+ series of theoretical and empirical inconsistencies that questioned the
+ validity of the research done in this area. Of all these
+ inconsistencies, the most crucial one was the inadequate semantic
+ description of the dimensional adjectives, based on the interpretation
+ of E.V. Clark (1972, 1973a) of the analysis done by Bierwisch (1967) for
+ dimensional adjectives in German.
+
+Alternative semantic description
+
+ This fact, and others that would be impossible to address here (see
+ Galeote, 1994 for a complete review), lead us to develop an alternative
+ semantic description of the dimensional adjectives that would take into
+ account their different meanings according to their different uses in
+ comparing objects. Such a semantic description was done taking into
+ account the semantic analysis of different authors (H. Clark, 1973;
+ Corrales, 1977; Goede, 1989; Greimas, 1970; Lang, 1989; Lyons, 1980;
+ Teller, 1969; etc.).
+
+[Moreno]
+
+For now, in this experiment, we use these two to try and formulate
+
+    “altura” (heigh/tallness) and “longitud” (length)
+
+The ceiling can only be HIGH. The WALLS could be tall, or the HOUSE
+could be tall.
+
+(!!)
+Confusingly, you can also say "high wall", meaning that the TOP of the
+wall is high.
+
+*/
+
+
+/* A building can be TALL. The TOP of the building is HIGH, because it's a
+long way from the ground, but the building itself is built on the
+ground, so the building is TALL. Just like a TALL person, it stands up,
+so the TOP of it is HIGH.
+
+* height = (tall taller tallest) (short shorter shortest)
+
+A balloon floating in the air can be HIGH, or HIGH UP, or HIGH UP IN THE
+SKY, but it can never be TALL.
+
+* height + float = (high higher highest) (small smaller smallest)
+
+
+
+//width = (small smaller smallest) (wide wider widest)
+
+//small = narrow
+//
+//
+
+
+
+
+
+
+
+// ((todo)) Work out function
+
+// if px, inch, cm + height: tallest, shortest, shorter than, taller than
+// if px, inch, cm + width: widest, wider, smaller than, smallest
+
+
+
+/* Comparatives and Superlatives
+ * ---------------------------------------------------------------------
+ *
+ * http://www.eflnet.com/tutorials/adjcompsup.php
+ * http://www.easyenglish.com/lesson.asp?best.txt
+ *
+ * Example natural language: 
+ *
+ *      The planet Earth is big. Saturn is bigger. Jupiter is the
+ *      biggest.
+ *
+ * the word "big" is an        ADJECTIVE
+ * the word "bigger" is a      COMPARATIVE ADJECTIVE
+ * and the word "biggest" is a SUPERLATIVE ADJECTIVE
+ * Exceptions (two important ones):      good, bad
+ 
+ * Cultivus:
+ *
+ * comparative((1 2 3 4 5 6))
+ *
+ *
+ 
+
+// last letter 'y'?
+
+// 1 is compared against 2
+comparative(range...)
+
+    if a is a 'unit' and b is a 'unit'
+
+        if thing1 < thing2
+            // smaller
+
+        if thing1 > thing2
+            // larger
+            
+        // thingX is the largest
+        // thingY is the smallest
+        // thingA is the smallest thingB the largest
+
+    else
+
+        (error 'a and b must be units!')
+
+//    ensure(a, 'unit')
+//    ensure(b, 'unit')
+
+    
+
+
+
+//[Moreno] <http://webpersonal.uma.es/~MGALEOTE/5221ESTAMBUL.htm>:  Relations between language input and the semantic structure of lexical terms in the acquisition of lexical meaning.
+// <http://www.espressoenglish.net/difference-between-big-small-long-short-tall-huge-and-tiny>
+
+
+
+
+
+*/

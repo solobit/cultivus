@@ -1,0 +1,35 @@
+/* 
+ * Preamble
+ * 
+ * These files must be loaded first, either here in stylus files or
+ * using Java-/CoffeeScript JSON or CSON.
+ * 
+ */
+
+@import 'settings'
+
+// All forms of fault tolerance and portability solutions 
+@import 'compatibility'
+
+// All things for accessibility suport
+@import 'accessibility'
+
+// Fonts, margins, glyphs, typesetting stuff...
+@import 'typography/'
+
+// Themes * Cultivus themes, stylus fetches index.styl, style per
+// directory Import theme-specific stylings (functions, mixins,
+// settings, variables)
+@import '../../themes'
+
+// Localization (language, date time, encoding)
+// Set the encoding manually (autodetection is enabled by default)
+// Import the file with localized names for variables, classes, elements
+@import '../../i18n/' + language
+
+// Semantic naming utilities (requires knowledge of themes and elements
+// so after themes for now)
+@import 'nomenclature'
+
+@import 'utilities'
+

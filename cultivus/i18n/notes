@@ -1,0 +1,269 @@
+//(heel, extra, zeer) groot | klein
+
+
+
+//gerund
+//false if match('^nee(n)?', nein)
+
+/* Comparative and Superlative Adjectives
+ * ---------------------------------------------------------------------
+ * 
+ * One-syllable adjectives
+ *
+ * Usage:
+ *
+ *      Form the comparative and superlative forms of a one-syllable
+ *      adjective by adding `–er` for the comparative form and `–est` for
+ *      the superlative. (EN)
+ *
+ * Examples:
+ * 
+ *      csa_grey = 'grijs' 'grijzer' 'grijst'
+ *               = 'greyness' 'more-greyness' 'most-greyness'
+ *
+ * Note: often you'd really want to use an adjective such as 'most'
+ * for say brightness, as opposed to 'brightest' but these are really
+ * just treated as synonyms of eachother.
+ *
+ * The latter form does imply finite bounds of a range on a scale of 3,
+ * possibly, or some other way e.g.:
+ *
+ *        greyness = (1.3   1.7   2.2)
+ *                    grey........greyest
+ *
+ *
+ * You can say:
+ * "Of the three girls, Mary's had the reddest lipstick. Her lipstick was redder than a fire engine."
+ *
+ * PS: Try to use quotes around quoted phrases: So, shall I say "more violet than the first one"?
+ *
+ * But even more correct would be to include the antonyms, in this case
+ * the amount of color of an image:
+ *
+ *      greyscale = ()
+ * 
+ * Ok this is a mess: best is to use more most or increase and maximum
+ * 
+ *
+ * if most-colorful(a,b,c) is b
+ */
+
+
+/*
+
+waar(args...)
+    true if match('^j(awel)?', args)
+    true if match('^aan(gezet)?', args)
+    true if match('^in(geschakeld)?', args)
+    true if match('^waar', args)
+    false
+
+p(waar('jawel'))
+
+*/
+
+$Darken       = 'verduisteren'
+$Lighten      = 'verlichten'
+$Rounding     = 'afronden'
+
+
+// Opposites + Comparative and Superlative
+// $limunation = ('bright' 'brighter' 'brightest') ('dark' 'darker' 'darkest')
+// this always needs a compareble subject lumni(a) < lumni(b) = b('brighter') || b('brightest')
+$lumni        = ('helder' 'helderder' 'helderst') ('donker' 'donkerder' 'donkerst')
+
+
+// Comparative and superlatives in spatial dimensions
+$Length       = (laag lager laagst) (hoog hoger hoogst)
+$Width        = ('smal' 'smaller' 'smalst') ('wijd' 'wijder' 'wijdst')
+// Z index
+$Depth        = (diep dieper diepst)
+
+
+
+
+
+
+
+
+heel    = 1.50
+extra   = 1.3
+
+/*
+more-hue(a)
+more-colors(a) //alias
+
+less-brightness(b)
+less-bright(b) // alias
+
+most-colorful(range...)
+most-colorful(range...)
+most-colorful(range...)
+least-bright(range...)
+
+
+// Size quantifiers
+//enorm               = xxl
+//zeer-groot          = xl
+//groot               = l
+//aardig              = ml  // medium large
+//middel              = m
+//normaal             = n // normal
+//klein               = s
+//extra-klein         = xs
+//micro               = xxs
+//nano                = xxxs
+
+
+/* Rasterindeling ~ grid.styl
+
+//kolom-breedte       = $grid-column-width
+//goot-breedte        = $grid-gutter-width
+//aantal-kolommen     = $grid-column-count
+
+// Componenten van een raster (tabel)
+//rijen               = row
+//kolom               = column
+//afzet               = offset
+
+Posities ~ positions.styl
+
+//vastgezet = fixed
+//absoluut = absolute
+//relatief  = relative
+
+*/
+
+*/
+//
+// Test / dev / experiment
+//
+
+
+
+
+/* Simple Future Forms
+ * ---------------------------------------------------------------------
+ *
+ * Simple Future has two different forms in English: "will" and "be
+ * going to." Although the two forms can sometimes be used
+ * interchangeably, they often express two very different meanings.
+ * Both "will" and "be going to" refer to a specific time in the future.
+ *
+ * FORM Will ~ [will + verb]
+ * e.g. You will help him later.
+ * USE 1 "Will" to Express a Voluntary Action
+ * USE 2 "Will" to Express a Promise
+ *
+ * FORM Be Going To ~ [am/is/are + going to + verb]
+ * USE 3 "Be going to" to Express a Plan
+ * e.g. You are going to meet Jane tonight.
+ *
+ * USE 4 "Will" or "Be Going to" to Express a Prediction
+ *
+ * In response to error handling, we can set the following example:
+ *
+ *
+ * apply-styles()    >> Will not apply styles! Styles are locked.
+ * or
+ * apply-theme()     >> Going to apply theme in 5, 4, 3, 2...failed
+ * or
+ * edit-document()   >> Will edit document (as soon as it is = when available) unlocked.
+ *
+ * So some notion of time and space are important for use to provide
+ * commands to computers (duh!).
+ * This variable, that style at that time.
+ */
+//false if match('^nee(n)?', nein)
+
+/* Comparative and Superlative Adjectives
+ * ---------------------------------------------------------------------
+ * 
+ * One-syllable adjectives
+ *
+ * Usage:
+ *
+ *      Form the comparative and superlative forms of a one-syllable
+ *      adjective by adding `–er` for the comparative form and `–est` for
+ *      the superlative. (EN)
+ *
+ * Examples:
+ * 
+ *      csa_grey = 'grijs' 'grijzer' 'grijst'
+ *               = 'greyness' 'more-greyness' 'most-greyness'
+ *
+ * Note: often you'd really want to use an adjective such as 'most'
+ * for say brightness, as opposed to 'brightest' but these are really
+ * just treated as synonyms of eachother.
+ *
+ * The latter form does imply finite bounds of a range on a scale of 3,
+ * possibly, or some other way e.g.:
+ *
+ *        greyness = (1.3   1.7   2.2)
+ *                    grey........greyest
+ *
+ *
+ * You can say:
+ * "Of the three girls, Mary's had the reddest lipstick. Her lipstick was redder than a fire engine."
+ *
+ * PS: Try to use quotes around quoted phrases: So, shall I say "more violet than the first one"?
+ *
+ * But even more correct would be to include the antonyms, in this case
+ * the amount of color of an image:
+ *
+ *      greyscale = ()
+ * 
+ * Ok this is a mess: best is to use more most or increase and maximum
+ * 
+ *
+ * if most-colorful(a,b,c) is b
+ */
+
+
+/*
+
+waar(args...)
+    true if match('^j(awel)?', args)
+    true if match('^aan(gezet)?', args)
+    true if match('^in(geschakeld)?', args)
+    true if match('^waar', args)
+    false
+
+p(waar('jawel'))
+
+*/
+
+$Darken       = 'verduisteren'
+$Lighten      = 'verlichten'
+$Rounding     = 'afronden'
+
+
+// Opposites + Comparative and Superlative
+// $limunation = ('bright' 'brighter' 'brightest') ('dark' 'darker' 'darkest')
+// this always needs a compareble subject lumni(a) < lumni(b) = b('brighter') || b('brightest')
+$lumni        = ('helder' 'helderder' 'helderst') ('donker' 'donkerder' 'donkerst')
+
+
+// Comparative and superlatives in spatial dimensions
+$Length       = (laag lager laagst) (hoog hoger hoogst)
+$Width        = ('smal' 'smaller' 'smalst') ('wijd' 'wijder' 'wijdst')
+// Z index
+$Depth        = (diep dieper diepst)
+
+
+/* Variables to variables
+ * ---------------------------------------------------------------------
+ *
+ * This is to keep definitions of colors etc at 1 central spot, so you
+ * don't have to provide the actual colors in the language you use.
+ *
+ */
+$Will  = 'Zal'
+$Going = 'Ga'
+
+// Refusal to do something
+$Not = 'niet'
+
+// Not going to execute this, shall fail due to stack overflow risk?
+
+

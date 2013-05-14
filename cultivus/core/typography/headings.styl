@@ -1,0 +1,92 @@
+
+
+
+
+/* Helper: Heading
+ * ---------------------------------------------------------------------
+ * For internal use within headings
+ *
+ */
+heading(color = #333)
+    color: color
+    text-rendering: optimizelegibility
+    font-weight: bold
+
+/* Helper: Heading Size
+ * ---------------------------------------------------------------------
+ *
+ * Gives your headings ratios custom crafted in house from the finest
+ * stock of mathematics. Feed it a size and it will get you rem and some
+ * nice header-y margins.
+ *
+ */
+heading-size(size)
+    font-size: unit(size, px)
+    text-margin(size/2)
+
+/* Mixin Set: Individual Headings h1 .. h6
+ * ---------------------------------------------------------------------
+ *
+ * These provide nice defaults for headings based off the default font
+ * size. The can scale infinitely, and work best when matched to their
+ * corresponding html elements.
+ *
+ * Examples:
+ *
+ *      .heading-special
+ *          h3()
+ */
+h1()
+    heading()
+    heading-size(font-size*2.4)
+    line-height: 1.2em
+h2()
+    heading()
+    heading-size(font-size*1.8)
+    line-height: 1.2em
+h3()
+    heading()
+    heading-size(font-size*1.5)
+    line-height: 1.2em
+h4()
+    heading()
+    heading-size(font-size*1.3)
+    line-height: 1.2em
+h5()
+    heading()
+    heading-size(font-size)
+    line-height: 1.2em
+h6()
+    heading()
+    heading-size(font-size*.9)
+    text-transform: uppercase
+    line-height: 1.2em
+
+/* (Additive) Mixin: Headers
+ * ---------------------------------------------------------------------
+ *
+ * WARNING: Creates classes in your css and styles them - not to be used
+ * inside an element. Adds roots' wonderful scaling header styles to
+ * your <hx> tags.
+ *
+ *
+ *      headers()
+ */
+headers()
+    h1
+        h1()
+
+    h2
+        h2()
+
+    h3
+        h3()
+
+    h4
+        h4()
+
+    h5
+        h5()
+
+    h6
+        h6()

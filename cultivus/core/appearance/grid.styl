@@ -1,0 +1,56 @@
+
+
+/* Semantic.gs for Stylus 🔗 http://semantic.gs
+ * =====================================================================
+ *
+ * http://learnboost.github.com/stylus/
+ * https://github.com/twigkit/semantic.gs
+ *
+ * Defaults which you can freely override
+ * are inside the index and global.
+ *
+ * FIXME: Scoping issues
+ */
+
+gcw = grid-column-width
+ggw = grid-gutter-width
+gcc = grid-column-count
+
+// Utility variable — you should never need to modify this
+_gcw = (gcw + ggw) * gcc
+
+// Set @total-width to 100% for a fluid layout
+total-width = _gcw
+
+// Override @min with the minimum width of your layout
+min-width = 960
+
+// Correcting percentage-to-pixel rounding errors in IE6 & 7
+// See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
+fixie = (((0.5 / min-width) * 100) * 1%)
+
+// Semantic grid with mappen localized names //
+row(gcc = gcc)
+    display: block
+    width: total-width * ((ggw + _gcw ) / _gcw)
+    margin: 0 total-width * (((ggw * 0.5) / _gcw ) * - 1)
+    *width: total-width * ((ggw + _gcw ) / _gcw)-fixie
+    *margin: 0 total-width * (((ggw * 0.5) / _gcw ) * - 1) - fixie
+column(x, gcc = gcc)
+    display: inline
+    float: left
+    overflow: hidden
+    width: total-width * ((((ggw + gcw ) * x) - ggw) / _gcw)
+    margin: 0 total-width * ( (ggw * 0.5) / _gcw)
+    *width: total-width * ((((ggw + gcw ) * x) - ggw) / _gcw) - fixie
+    *margin: 0 total-width * ( (ggw * 0.5) / _gcw) - fixie
+offset(offset = 1)
+    margin-left: total-width*(((ggw+gcw)*offset + (ggw*0.5))/_gcw)
+
+
+// ??
+grid()
+    body
+        width 100%
+        clearfix()
+

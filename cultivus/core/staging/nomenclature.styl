@@ -1,0 +1,71 @@
+
+
+
+/*
+
+
+//font-family: open-sans
+
+
+// So say we have a list of different pages, or styles, a theme or a
+// prefix we like to apply. For that we need selectors and since,
+// theoretically atleast you could have 10 themes on 1 page, there is
+// some need to clearly distinguish
+
+pages = ('blue' 'powerrr' 'test' 'template')
+
+
+// I was inspired by: http://www.youtube.com/watch?v=XQWOKBBJ114
+
+// .component e.g. .button
+// .component-group e.g. .button-inline
+// .component-modifier e.g. .button-primary
+// .component-group-item e.g. .button-inline-alternative
+//vs
+// .Button
+// .ButtonGroup
+// .Button--primary or .Button--dialog etc.
+// .ButtonGroup-item, .FormButtons--enable
+
+//component--modifier = '--'
+
+// Case
+case-component      = capitalize    // e.g. .Button .Form .Something
+case-grouping       = capitalize    // e.g. .ButtonForms .FormButtons .SomethingElse
+case-modifier       = lowercase     // actions, operate, modify/edit, change state
+case-descendants    = lowercase     // children, items, derived
+
+
+//applyStyle(cpt = 'Page')
+
+has-modifier         = true
+modifier-seperator   = '--' if has-modifier // else ''
+
+// ThemeDasha-FormControl-buttons
+
+applyTheme(prefix = theme-class-prefix)
+
+    // seperators
+    // 
+    for e in pages
+        .{prefix}{theme-active}-{e}
+            color: primary-color
+            foo: abc
+
+
+applyClassPageHeadings(name = 'class')
+
+    // ('h1' 2.4) ('h2' 2.1) .. etc
+    for k, v in range-heading
+        .{name}-{k}
+            font-size: unit((font-size * k[1]), 'px')
+// applyTheme('thema') overide prefix
+
+applyTheme()
+
+applyClassPageHeadings('Introductie')
+
+// Semgrid columns to usable classes in HTML
+
+
+*/

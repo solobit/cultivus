@@ -1,0 +1,52 @@
+
+/* Font stack (immutable)
+ *
+ * This is easily fekked up by some unknowing person. Govern with a
+ * tight leash. Provide fallback fonts. ((todo improve))
+ *
+ */
+
+open-sans            ?= 'Open Sans', sans-serif
+dosis                ?= 'Dosis', sans-serif
+
+helvetica-neue       ?= "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif
+helvetica            ?= "Helvetica Neue", Helvetica, Arial, sans-serif
+georgia              ?= Georgia, Cambria, "Times New Roman", Times, serif
+lucidia-grande       ?= "Lucida Grande", Tahoma, Verdana, Arial, sans-serif
+monospace            ?= unquote("'Bitstream Vera Sans Mono', Consolas, Courier, monospace")
+verdana              ?= Verdana, Geneva, sans-serif
+
+
+/* Mixin: Font Size (fs)
+ * ---------------------------------------------------------------------
+ *
+ * An alias for 'font-size'
+ *
+ * Example:
+ *
+ *      fs: 16px
+ */
+fs(size)
+    font-size: size
+
+
+/* ⟲ Mixin: Font Face
+ * ---------------------------------------------------------------------
+ * 🔗 http://www.fontspring.com/blog/the-new-bulletproof-font-face-syntax
+ *
+ * Super simple font-face declaration. Just give the name and the folder
+ * it lives in. Make sure the font name matches the name of the files.
+ * Uses the fontspring syntax
+ *
+ * Examples:
+ * 
+ *      font-face(proxima-nova, '/fonts')
+ *
+ */
+font-face(name, folder, weight = normal, style = normal)
+    @font-face
+        font-family: name
+        src: url(folder unquote('/') name unquote('.eot') '?#iefix') format('embedded-opentype'), url(folder unquote('/') name unquote('.woff')) format('woff'), url(folder unquote('/') name unquote('.ttf')) format('truetype'), url(folder unquote('/') name unquote('.eot') '#svgFontName') format('svg');
+        font-weight: weight
+        font-style: style
+        

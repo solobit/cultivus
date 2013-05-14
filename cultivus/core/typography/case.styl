@@ -1,0 +1,60 @@
+
+/* Mixin: Uppercase
+ * ---------------------------------------------------------------------
+ *
+ * An alias for 'text-transform: uppercase'
+ *
+ * ex. +uppercase
+ */
+uppercase()
+    text-transform: uppercase
+
+/* Mixin: Upcase
+ * ---------------------------------------------------------------------*
+ *
+ * An alias for 'text-transform: uppercase'
+ *
+ * Examples:
+ *
+ *      upcase()
+ */
+upcase()
+    uppercase()
+
+/* Mixin: Lowercase
+ * ---------------------------------------------------------------------*
+ *
+ * An alias for 'text-transform: lowercase'
+ *
+ * ex. lowercase()
+ */
+lowercase()
+    text-transform: lowercase
+
+/* Mixin: Downcase
+ * ---------------------------------------------------------------------
+ *
+ * An alias for 'text-transform: lowercase'
+ * ex. downcase()i
+ */
+downcase()
+    lowercase()
+
+/* Mixin: Reset Case
+ * ---------------------------------------------------------------------
+ * Gets rid of an text transform
+ *
+ * ex. reset-case()
+ */
+reset-case()
+    text-transform: none
+
+/* Mixin: Small Text
+ * ---------------------------------------------------------------------
+ * Makes your text smaller and a little lighter. Great on <small />
+ * tags. ex. small-text()
+ */
+small-text()
+    font-size: 55%
+    opacity: .6
+    font-weight: normal
