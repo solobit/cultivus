@@ -1,0 +1,24 @@
+
+
+
+// Creates classes such as Left-align or Right-align
+align(direction)
+
+    // Form a semantic component
+    // name, class and modifier
+    if direction is 'left'
+        .{$Left}-{to_align[0]}
+            float left
+            margin-right baseline_size
+        
+    if direction is 'right'
+        .{$Right}-{to_align[0]}
+           float right
+           margin-left baseline_size
+        
+    if direction is 'both'
+        .{$Left}{$Right}-{to_align[0]}
+            clear both
+            display block
+            margin 0 auto
+

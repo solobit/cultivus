@@ -1,0 +1,305 @@
+
+
+/* Language maps (work in progress)
+ * 
+ */
+
+
+/* Naming convention (1) The unconventional convention
+ * ---------------------------------------------------------------------
+ * http://www.youtube.com/watch?v=XQWOKBBJ114
+ *
+ * 
+ * .Component
+ * .ComponentGroup
+ * .Component--modifier
+ * .ComponentGroup-item
+ * The so called component 'modifiers' are infinitive forms of verbs
+ *
+ */
+
+/* Grammatical conjugation (werkwoord voltooien)
+ * ---------------------------------------------------------------------
+ * http://www.taaldok.nl/engels/grammatica/gerund.php
+ */
+
+// infinitive  :=  infinitive     participle  &   gerund
+to_adjust       = 'aanpassen'    'aangepast'     'aanpassing'
+to_align        = 'uitlijnen'    'uitgelijnd'    'uitlijning'
+to_apply        = 'toepassen'    'toegepast'     'toepassing'
+to_calculate    = 'berekenen'    'berekend'      'berekening'
+to_cancel       = 'annuleren'    'geannuleerd'   'annulering'
+to_change       = 'wijzigen'     'gewijzigd'     'wijziging'
+to_close        = 'sluiten'      'gesloten'      'sluiting'
+to_complete     = 'voltooien'    'voltooid'      'voltooiing'
+to_confirm      = 'bevestigen'   'bevestigd'     'bevestiging'
+to_create       = 'creeeren'     'gecreeerd'     'creeren'
+to_disable      = 'uitschakelen' 'uitgeschakeld' 'uitschakeling'
+to_download     = 'download'     'gedownloade'   'downloading' 
+to_draw         = 'tekenen'      'getekend'      'tekening'
+to_edit         = 'bewerken'     'bewerkt'       'bewerking'
+to_erase        = 'wissen'       'gewist'        'verwijdering'
+to_execute      = 'uitvoeren'    'uitgevoerd'    'uitvoering'
+to_exit         = 'afsluiten'    'afgesloten'    'afsluiting'
+to_illustrate   = 'illustreren'  'geillustreerd' 'illustreren'
+to_make         = 'maken'        'gemaakt'       'volmaking'
+to_modify       = 'modificeren'  'gemodificeerd' 'modificatie'
+to_notify       = 'melden'       'gemeld'        'melding'
+to_open         = 'openen'       'geopend'       'opening'
+to_point        = 'aanwijzen'    'aangewezen'    'aanwijzing'
+to_refresh      = 'verversen'    'ververst'      'verversing'
+to_remove       = 'verwijderen'  'verwijderd'    'verwijdering'
+to_renew        = 'vernieuwen'   'verniewd'      'vernieuwing'
+to_report       = 'rapporteren'  'gerapporteerd' 'rapportage'
+to_send         = 'verzenden'    'verzonden'     'verzending'
+to_wait         = 'wachten'      'gewacht'       'wachttijd'
+to_warn         = 'waarschuwen'  'gewaarschuwd'  'waarschuwing'
+
+/* Adjectives
+ * ---------------------------------------------------------------------
+ *
+ * A 'describing' word; the main syntactic role of which is
+ * to qualify a noun or noun phrase, giving more information about the
+ * object signified.
+ *
+ * Examples:
+ *
+ * - Form loading successful
+ *
+ */
+successful      = 'geslaagd'
+failed          = 'gefaald'
+ready           = 'gereed'
+prepared        = 'voorbereid'
+planned         = 'gepland'
+
+
+// fluid fixed responsive
+$GridTypes    = 'vloeibaar' 'vast' 'reactief'
+
+/* Prepositions
+ * ---------------------------------------------------------------------
+ *
+ * Prepositions (or more generally adpositions, see below) are a
+ * grammatically distinct class of words whose most central members
+ * characteristically express spatial or temporal relations (such as the
+ * English words in, under, toward, before) or serve to mark various
+ * syntactic functions and semantic roles (such as the English words of,
+ * for). In that the primary function is relational, a preposition
+ * typically combines with another constituent (called its complement)
+ * to form a prepositional phrase, relating the complement to the
+ * context in which the phrase occurs.
+ *
+ */
+
+
+// Time
+$During       = 'gedurende'
+$Now          = 'nu'
+
+
+// Booleans (yes/no on/off true/false)
+ja     = true
+nee    = false
+aan    = true
+uit    = false
+waar   = true
+onwaar = false
+
+// Denial nouns -- de•ni•aldɪˈnaɪ əl(n.)
+$not = 'niet' // error on not as a operator
+
+
+
+
+/* Phrases
+ * ---------------------------------------------------------------------
+ * 
+ * Adjective phrases (AP) are used to increase or decrease certain
+ * values.
+ */
+
+/*
+ *
+ */
+
+
+/* Part-of-speech
+ * ---------------------------------------------------------------------
+ *
+ * In grammar, a part of speech (also a word class, a
+ * lexical class, or a lexical category) is a linguistic category of
+ * words (or more precisely lexical items), which is generally defined
+ * by the syntactic or morphological behaviour of the lexical item in
+ * question.
+ *
+ * http://www.wikihow.com/Avoid-Colloquial-(Informal)-Writing
+ *
+ *
+ * 
+ * adjectives:    generic       formal        informal
+ *                Organization  Enterprise    Business
+ */
+
+$org          = ('Organisatie' 'Onderneming' 'Bedrijf')
+
+
+
+
+/* Nouns (singular and plural)
+ * ---------------------------------------------------------------------
+ *
+ * Nouns are a part of speech typically denoting a person, place, thing,
+ * animal or idea. In linguistics, a noun is a member of a large, open
+ * lexical category whose members can occur as the main word in the
+ * subject of a clause, the object of a verb, or the object of a
+ * preposition
+ *
+ */
+
+$Error          = 'Fout'       'Fouten'
+$Page           = 'Pagina'     'Paginas'
+
+
+$Form           = 'Formulier' 'Formulieren'
+$Employee       = 'Werknemer' 'Werknemers'
+$Personnel      = 'Personeel' 'Personeelsleden'
+
+// Controls
+$Control        = 'Besturing'
+$Element        = 'Element'
+$Button         = 'Knop'
+$Field          = 'Veld'
+$Text           = 'Tekst'
+
+// Environmental and storage
+$Function       = 'Functie' 'Functies'
+$Environment    = 'Omgeving' 'Omgevingen'
+$Input          = 'Invoer' 'Invoeringen'
+$Output         = 'Uitvoer' 'Uitvoeringen'
+$Path           = 'Pad' 'Paden'
+$Folder         = 'Map' 'Mappen'
+
+$Structure      = 'Structuur' 'Structuren'
+$Layer          = 'Laag' 'Lagen'
+
+
+// Enumeration elements
+$List           = 'Lijst' 'Lijsten'
+$Table          = 'Tabel' 'Tabellen'
+$Column         = 'Kolom' 'Kolommen'
+$Row            = 'Rij' 'Rijen'
+
+// Component items are lowercased characters
+// so for comfort, already done.
+$items          = 'onderdeel' 'onderdelen'
+$members        = 'lid' 'leden'
+
+// Latin words for? media elements
+$Media          = 'Media' 'Media'
+$Volume         = 'Volume' 'Volume'
+$Audio          = 'Audio' 'Audio'
+
+// Those that are changed when plural
+$Video          = 'Video' 'Videos'
+$Animation      = 'Animatie' 'Animaties'
+$Image          = 'Afbeelding' 'Afbeeldingen'
+$Sound          = 'Geluid' 'Geluiden'
+
+
+// Slates, planes
+$Tab          = 'Tabblad'
+$Window       = 'Venster'
+$Dialog       = 'Dialoog'
+$Notification = 'Melding'
+$Flash        = 'Flits'
+$File         = 'Bestand'
+$Canvas       = 'Canvas'
+
+// Geometric shapes
+$Point        = 'Punt'
+$Line         = 'Lijn'
+$Circle       = 'Circel'
+$Rectangle    = 'Rechthoek'
+$Square       = 'Vierkant'
+$Triangle     = 'Driehoek'
+
+// Relative positions
+$Middle       = 'Midden'
+$Center       = 'Centrum'
+$Above        = 'Boven'
+$Top          = 'Bovenaan'
+$Below        = 'Onder'
+$Bottom       = 'Onderaan'
+$Left         = 'Links'
+$Right        = 'Rechts'
+$Front        = 'Voorkant'
+$Back         = 'Achterkant'
+
+
+//$LeftMost     = $Most$Left
+
+
+// Adj
+$maximum      = 'maximum'
+
+
+// Spatial dimensions
+$Horizontal   = 'Horizontaal'
+$Vertical     = 'Verticaal'
+$Width        = 'Breedte'
+$Length       = 'Lengte'
+$Height       = 'Hoogte'
+$Depth        = 'Diepte'
+$Size         = 'Grootte'
+
+// Appearance
+$Color        = 'Kleur'
+$Corner       = 'Hoek'
+$Edge         = 'Rand'
+$Shadow       = 'Schaduw'
+
+
+// Named colors 
+// Avoids naming collisions with HTML
+
+wit                 = $White
+
+zwart               = $Black
+
+geel                = $Yellow
+
+goud                = $Gold
+
+paars               = $Purple
+lichtpaars          = $Light$Purple
+
+blauw               = $Blue
+lichtblauw          = $Light$Blue // light(Blue) lighter(Blue) lightest(Blue)
+donkerblauw         = $Dark$Blue
+
+rood                = $Red
+lichtrood           = $Light$Red
+
+bruin               = $Brown
+lichtbruin          = $Light$Brown
+
+grijs               = $Grey
+lichtgrijs          = $Light$Grey
+donkergrijs         = $Dark$Grey
+
+oranje              = $Orange
+groen               = $Green
+
+
+
+// Interactie
+zweef-donker       = hover-darken
+zweef-lichter      = hover-lighten
+zweef-onderstrepen = hover-underlined
+zweef-dialoog      = hover-pop
+zweef-vervaag      = hover-fake
+zweef-kleur        = hover-colored
+
+
+

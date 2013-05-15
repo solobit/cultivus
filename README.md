@@ -7,6 +7,30 @@ controls (buttons, forms)
 staging (system chain)
 
 
+/*
+ core
+    \- appearance
+    \- controls
+    \- staging -
+                I@ preamble
+                           - typesetting
+                           - ../../themes
+                           - ../../i18n
+                I@ ../appearance
+                I@ ../controls
+                
+    
+    \- typesetting
+
+
+my-children(parent, children)
+    for child, index in children
+        {parent}:nth-child({index})
+            height: 10px * index
+
+my-children('table tr', (1 2 3 4))
+
+*/
 
 # Essential information
 

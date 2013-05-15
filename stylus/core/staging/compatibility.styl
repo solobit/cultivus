@@ -1,0 +1,61 @@
+
+/* Fault tolerance configuration
+ * 
+ * Progressive enhancement, shims, graceful fallbacks vendor prefixes,
+ * backwards compatibility from language to browser since there won't be
+ * that many at any given time (since others get solved and browsers
+ * evolve at a certain rate). This is something you want working
+ * properly and maintain if you wish to provide forms of backwards and
+ * cross-browser support of usually 'cutting-edge' effects (those things
+ * from new specifications which have not been implemented, or
+ * partially, yet).
+ */
+
+/* Based on [Eric Meyer's reset]
+ * 🔗 http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded
+ * Applied normalize() and global-reset()
+ */
+@import 'baseline'
+
+// customize browser vendor prefixes
+vendors := webkit moz o ms official
+
+// import vendor prefixes for CSS
+@import 'vendor' if vendors
+
+// Progressive Internet Explorer 🔗 http://css3pie.com
+
+// enable or disable internet explorer support
+support-for-ie = true // mutable
+
+// mutable pie state using on/off switch
+pie-enabled = true if support-for-ie
+pie-path = '/stijlen/lib/cultivus/core/staging/pie/pie.htc'
+
+
+/* Helper: Progressive Internet Explorer
+ * ---------------------------------------------------------------------
+ *
+ * When turned on, enables css3 pie (http://css3pie.com/) for all
+ * elements that can use it. Which makes IE look a lot nicer.
+ *
+ * Examples:
+ * 
+ *      pie()
+ */
+pie()
+    behavior: url(pie-path) if pie-enabled
+
+/* Mixin: Maximum Rounded Corners
+ * ---------------------------------------------------------------------
+ *
+ * Unless you are working with a ridiculously large element, this will
+ * round the corners as much as css will allow. Even in IE.
+ *
+ * Examples:
+ *
+ *      rounded()
+ */
+rounded()
+    border-radius: 999px
+    pie()

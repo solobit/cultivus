@@ -20,5 +20,10 @@
   ],
   "author": "R. Jentzema (composer)",
   "license": "MIT",
-  "gitHead": "fc4d47595c1ab2706a0fed0fa6117bc49eecac12"
+  "gitHead": "fc4d47595c1ab2706a0fed0fa6117bc49eecac12",
+  "dependencies": {
+    "commander": "~1.1.1",
+    "winston": "~0.7.1",
+    "better-require": "*"
+  }
 }

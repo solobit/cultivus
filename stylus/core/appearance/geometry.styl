@@ -1,0 +1,131 @@
+
+
+/* island */
+.island {
+    background-color: aside-color;
+    collapseinnermargins();
+    margin: baseline_size baseindentsize;
+    padding: baseline_size baselindentsize;
+}
+
+triangle(direction = right, color = black, base = 1em, rise = auto, position = auto, whitespace-color = transparent, pseudo = auto) {
+    position: relative;
+    pseudo = triangle-get-pseudo(direction, pseudo);
+
+    &:{pseudo} {
+        direction-opposite = opposite-position(direction);
+
+        display: block;
+        position: absolute;
+        box-sizing: content-box;
+        content: " ";
+        line-height: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        triangle-size-block: direction base rise;
+        triangle-color-block: direction color whitespace-color;
+        triangle-position-block: direction position;
+    }
+}
+
+triangle-color-block(direction, color, whitespace-color = auto) {
+    direction-opposite = opposite-position(direction);
+
+    if (whitespace-color != auto) {
+        border-color: whitespace-color;
+    }
+    border-{direction-opposite}-color: color;
+}
+
+triangle-color(direction, color, whitespace-color = auto, pseudo = auto) {
+    pseudo = triangle-get-pseudo(direction, pseudo);
+
+    &:{pseudo} {
+        triangle-color-block(direction, color, whitespace-color);
+    }
+}
+
+triangle-get-widths(direction, base = 1em, rise = auto) {
+    border-width = base / 2;
+
+    if (rise == auto) {
+        rise = border-width;
+    }
+    triangle-width = rise;
+
+    if (direction == left) {
+        (border-width) (triangle-width) (border-width) (0);
+    } else if (direction == right) {
+        (border-width) (0) (border-width) (triangle-width);
+    } else if (direction == top) {
+        (0) (border-width) (triangle-width) (border-width);
+    } else if (direction == bottom) {
+        (triangle-width) (border-width) (0) (border-width);
+    } else {
+        error("triangle-get-widths: direction is invalid");
+    }
+}
+
+triangle-size-block(direction, base = 1em, rise = auto) {
+    widths = triangle-get-widths(direction, base, rise);
+    border-width: widths;
+}
+
+triangle-size(direction, base = 1em, rise = auto, pseudo = auto) {
+    pseudo = triangle-get-pseudo(direction, pseudo);
+
+    &:{pseudo} {
+        triangle-size-block(direction, base, rise);
+    }
+}
+
+triangle-get-position(direction, position) {
+    position-all = (auto auto auto auto);
+    perpendicular = perpendicular-position(direction);
+    direction-opposite = opposite-position(direction);
+
+    if (position != auto) {
+        position-all[0] = position[0] unless position[0] == auto;
+        position-all[1] = position[1] unless position[1] == auto;
+        position-all[2] = position[2] unless position[2] == auto;
+        position-all[3] = position[3] unless position[3] == auto;
+    }
+
+    if (position-all[position-order(perpendicular)] == auto) {
+        position-all[position-order(perpendicular)] = 0;
+    }
+    if (position-all[position-order(direction-opposite)] == auto) {
+        position-all[position-order(direction-opposite)] = 100%;
+    }
+
+    position-all;
+}
+
+triangle-position-block(direction, position) {
+    position-all = triangle-get-position(direction, position);
+
+    top: position-all[0] unless position-all[0] in auto-null-check;
+    right: position-all[1] unless position-all[1] in auto-null-check;
+    bottom: position-all[2] unless position-all[2] in auto-null-check;
+    left: position-all[3] unless position-all[3] in auto-null-check;
+}
+
+triangle-position(direction, position, pseudo = auto) {
+    pseudo = triangle-get-pseudo(direction, pseudo);
+
+    &:{pseudo} {
+        triangle-position-block(direction, position);
+    }
+}
+
+triangle-get-pseudo(direction, pseudo) {
+    if (pseudo == auto) {
+        if (direction in (top left)) {
+            pseudo = before;
+        } else if (direction in (bottom right)) {
+            pseudo = after;
+        }
+    }
+    pseudo;
+}
